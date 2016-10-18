@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Pedro Carmona</title>
+    <link>https://pedrocarmona.github.io/tags/about/index.xml</link>
+    <description>Recent content on Pedro Carmona</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    <atom:link href="https://pedrocarmona.github.io/tags/about/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>About</title>
+      <link>https://pedrocarmona.github.io/about/</link>
+      <pubDate>Mon, 17 Oct 2016 19:00:37 +0200</pubDate>
+      
+      <guid>https://pedrocarmona.github.io/about/</guid>
+      <description>&lt;p&gt;Pedro is a Software Engineer at Bidmath in Amsterdam. In his job, he chases the increase of impressions, clicks and conversions in Bidmath advertisment platform. Rethinks and implements, but mostly has fun, developing Ruby applications and services, along with Docker and Kubernetes. At the same time, activily running away from Hadoop, to play with data in Jupyter and Apache Beam.&lt;/p&gt;
+
+&lt;p&gt;In 2015 worked at Fidelity National Information Services as a Programmer Analyst I for one year. From the Amsterdam&amp;rsquo;s office developed and mantained banking software, such as webservices integration and frontend interfaces for telephony  and for user management using Java, Spring and Javascript.&lt;/p&gt;
+
+&lt;p&gt;Received MsC in Computer Engineering in 2014 from the University of Coimbra, Portugal.&lt;/p&gt;
+
+&lt;p&gt;During his studies, also worked as Web Developer for Whitesmith, consulting in a venue reservation system.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Pedro Carmona</title>
+    <link>https://pedrocarmona.github.io/tags/jekyll/index.xml</link>
+    <description>Recent content on Pedro Carmona</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    <atom:link href="https://pedrocarmona.github.io/tags/jekyll/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Static Website Development</title>
+      <link>https://pedrocarmona.github.io/blog/first/</link>
+      <pubDate>Tue, 18 Oct 2016 23:50:17 +0200</pubDate>
+      
+      <guid>https://pedrocarmona.github.io/blog/first/</guid>
+      <description>&lt;p&gt;Today is the first day of this personal website, which I chosen to develep with &lt;a href=&#34;https://gohugo.io/&#34;&gt;Hugo&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;A while a go, I had the opportunity to work with &lt;a href=&#34;https://jekyllrb.com/&#34;&gt;Jekyll&lt;/a&gt;, developing a yet to come, new version for my parents small scale
+tourist resort, &lt;a href=&#34;http://www.quintadaricafe.pt/&#34;&gt;Quinta da Rica-Fe&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;After working with both &lt;a href=&#34;https://gohugo.io/&#34;&gt;Hugo&lt;/a&gt; and &lt;a href=&#34;https://jekyllrb.com/&#34;&gt;Jekyll&lt;/a&gt;, I decided that I will migrate also to Hugo my parents website. The main reasons for this are:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Compile time, Hugo is really fast comparing with the alternative. Also, in jekyll file changes detetion is slow. In hugo, imidiatly after saving the files the changes are propagated to the browser.&lt;/li&gt;
+&lt;li&gt;Although it is just a tool on top of golang, it will allow me to get used to golang templating and stack trace.&lt;/li&gt;
+&lt;li&gt;At the time of this article, github only serves Github Pages with Jekyll. This means that &lt;a href=&#34;https://gohugo.io/tutorials/github-pages-blog/&#34;&gt;some work arounds&lt;/a&gt; are necessary to use Hugo.&lt;/li&gt;
+&lt;li&gt;To fully compare both platforms, I need a project like my parents website - where there are requirements like two languages, Portuguese and English.&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
