@@ -30,7 +30,7 @@ body
     min-height: 100%;
     margin: 0;
 
-    background-color: #dfe1df;
+    background-color: #fcfcfc;
 }
 html
 {
@@ -88,7 +88,7 @@ div.content
 {
     font-family: 'Roboto', sans-serif;
     font-weight: 200;
-    color: #666D65;
+    color: #bbb;
 }
 .error
 {
@@ -100,7 +100,7 @@ div.content
 {
     font-size: 80px;
 
-    color: #666D65;
+    color: #bbb;
 }
 .error p
 {
@@ -121,7 +121,7 @@ div.content
 {
     margin-top: 10px;
 
-    color: #666D65;
+    color: #bbb;
 }
 .header
 {
@@ -130,8 +130,8 @@ div.content
 }
 .headshot
 {
-    width: 300px;
-    height: 300px;
+    width: 200px;
+    height: 200px;
 }
 .info
 {
@@ -197,7 +197,7 @@ h3.intro
     font-size: 12px;
     font-weight: 200;
 
-    color: #666D65;
+    color: #bbb;
 }
 a.meta
 {
@@ -209,7 +209,7 @@ h6.meta
     font-size: 12px;
     font-weight: 200;
 
-    color: #666D65;
+    color: #bbb;
 }
 section.meta {
     margin-top: 
