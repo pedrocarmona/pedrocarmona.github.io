@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<meta name="description" content="Pedro Carmona Personal Website">
+<meta name="keywords" content="blog,profile,developer,ruby,software">
+
+<base href="https://pedrocarmona.github.io/">
+
+<title>Pedro Carmona</title>
+
+<meta name="generator" content="Hugo 0.26" />
+
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,400|Roboto+Slab:400,700|Roboto:300,300i,400,400i,500,500i,700,700i">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://pedrocarmona.github.io/css/main.css">
+
+
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+<meta name="theme-color" content="#ffffff">
+
+</head>
+<body lang="en-US">
+<div class="container">
+
+
+<header class="row text-left title">
+  <h1 class="title">Data Visualization Platforms</h1>
+</header>
+<section id="category-pane" class="row meta">
+  
+  <div class="col-md-12">
+    <h6 class="text-left meta">
+      PUBLISHED ON SEP 26, 2017 
+      
+      
+      — 
+      
+      
+      <a class="meta" href="/categories/blog">BLOG</a>
+      
+      
+    </h6>
+  </div>
+  
+</section>
+<section id="content-pane" class="row">
+  <div class="col-md-12 text-justify content">
+    
+
+<p>Nowadays, their are multiple report solutions that allow marketeers and data analysts to view and analyse data. This reporting tools connect to databases and prepare the data for visualization.
+Within this article several report platforms will be compared, using the following parameters:</p>
+
+<ul>
+<li><a href="#supported-databases">Supported Databases</a></li>
+<li><a href="#query-caching">Query caching</a></li>
+<li><a href="#team-share">Team share</a></li>
+<li><a href="#install-requirements">Install requirements</a></li>
+<li><a href="#permissions">Permissions</a></li>
+<li><a href="#storage-and-versioning">Storage and Versioning</a></li>
+<li><a href="#pricing">Pricing</a></li>
+</ul>
+
+<h2 id="supported-databases">Supported databases</h2>
+
+<ul>
+<li><a href="www.tableau.com">Tableau</a> supports a wide variety of databases, including Amazon Athena, Amazon Redshift, Anaplan, Apache Drill, Cloudera Hadoop Hive and Impala, Firebird, Google BigQuery, Microsoft Azure Data Lake, Microsoft SQL Server, MonetDB, MongoDB BI, MySQL 5.0, Oracle Database, Pivotal Greenplum, PostgreSQL, Presto, Snowflake.</li>
+<li><a href="https://github.com/apache/incubator-superset">Superset</a> supports MySQL, Postgres, Vertica, Oracle, Microsoft SQL Server, SQLite, Greenplum, Firebird, MariaDB, Sybase,IBM DB2, Exasol, MonetDB, Snowflake, Redshift. Redshift, Mysql and Druid.</li>
+<li><a href="https://github.com/ankane/blazer">Blazer</a> supports PostgreSQL, MySQL, SQL Server, Oracle, IBM DB2 and Informix, SQLite, Amazon Redshift, Amazon Athena, Presto, Apache Drill, Google BigQuery, MongoDB, Elasticsearch.</li>
+</ul>
+
+<h2 id="query-caching">Query caching</h2>
+
+<p>Query caching allows reporting tools to improve the usability of their service.</p>
+
+<ul>
+<li><a href="www.tableau.com">Tableau</a> users can predifine if a given source is stored in an extract. Usually, this speeds up the response time of the reporting tool.</li>
+<li><a href="https://github.com/apache/incubator-superset">Superset</a> dashboards have configurable caching.</li>
+<li><a href="https://github.com/ankane/blazer">Blazer</a> by default it will cache for one hour queries that take longer than 15 seconds. The threshould and cache time is configurable by datasource.</li>
+</ul>
+
+<h2 id="team-share">Team Share</h2>
+
+<p>Using web browser reporting tools may offer the ability to easily share the result of a given query, or share a dashboard with specific filters.
+* In <a href="www.tableau.com">Tableau</a>, with tableau online isnt possible to save the current state of the filter, because the url isnt mutated with the filters. Also users cannot simple run SQL queries directly.
+* <a href="https://github.com/apache/incubator-superset">Superset</a>
+* <a href="https://github.com/ankane/blazer">Blazer</a> users can share dashboards with parameters and adhoc queries and their results easilly.</p>
+
+<h2 id="install-requirements">Install requirements</h2>
+
+<ul>
+<li><a href="www.tableau.com">Tableau</a> the desktop version is avaliable for windows and mac. Tableau server is deployed in an Windows environment.</li>
+<li><a href="https://github.com/apache/incubator-superset">Superset</a> Python and preferable unix environment.</li>
+<li><a href="https://github.com/ankane/blazer">Blazer</a> Ruby on Rails and preferable unix environment.</li>
+</ul>
+
+<h2 id="permissions">Permissions</h2>
+
+<p>Access control is a feature that allows the administrator of the tool the control the permissions of the users on a given report.
+* <a href="www.tableau.com">Tableau</a> has a permissions system embed.
+* <a href="https://github.com/apache/incubator-superset">Superset</a> contains a customizable permission system.
+* In <a href="https://github.com/ankane/blazer">Blazer</a> users can create queries that cannot be edited by other users.</p>
+
+<h2 id="storage-and-versioning">Storage and Versioning</h2>
+
+<p>Storing the reports in an external storage like a git repo allows the maintainers of the reports to track changes, create tags with deployed versions, and control the code accessibility.</p>
+
+<ul>
+<li>In <a href="www.tableau.com">Tableau</a> its possible to use a builtin backup system via the UI. On the other hand, this only contains a set of the latest versions. It is required to implement a custom development procedure, in order to safely store in an external storage all versions of the reports.</li>
+<li><a href="https://github.com/apache/incubator-superset">Superset</a> its not possible to use versions. Queries are saved in the database. The database can be configured with daily backups.</li>
+<li>With <a href="https://github.com/ankane/blazer">Blazer</a> its not possible to use versions. Queries are saved in the database. The database can be configured with daily backups.</li>
+</ul>
+
+<h2 id="pricing">Pricing</h2>
+
+<ul>
+<li><a href="www.tableau.com">Tableau</a>: I would recomend to use Tableau Desktop (70 euros/per user) together with the Tableau Online (42 euros/per user). I prefer Tableau Online because:
+
+<ul>
+<li>Its only 7 euros more expensive than Tableau Server.</li>
+<li>Its enough for small that dont require complex data manipulation.</li>
+<li>However at the moment it cannot use python or
+R Server to enhance the reports (its only possible in Tableau Server)</li>
+</ul></li>
+<li><a href="https://github.com/apache/incubator-superset">Superset</a> is a custom deployed solution and the cost would be arround 40 euros per month for a small team.</li>
+<li><a href="https://github.com/ankane/blazer">Blazer</a> if the company already uses an administration panel in RubyOnRails, then this platform is for free. Otherwise requires a custom deployment</li>
+</ul>
+
+<h1 id="conclusion">Conclusion</h1>
+
+<p>I would recomend each of the reporting tools analysed for:</p>
+
+<ul>
+<li><a href="www.tableau.com">Tableau</a> small, medium and large business that require a easy solution, fast deployment. It includes a report generation tool and it has good documentation. Also its a predominant solution.</li>
+<li><a href="https://github.com/apache/incubator-superset">Superset</a> companies with an in-house engineer able to setup and perform maintenance in python and unix systems. Its an open source tool that might be predominant in the future.</li>
+<li><a href="https://github.com/ankane/blazer">Blazer</a> for companies using RubyOnRails. Its a simple solution that helps solve most of the use cases: Create simple dashboards and give users the ability to create SQL queries as well as download the corresponding CSV reports.</li>
+</ul>
+
+<h1 id="to-be-continued">To be continued</h1>
+
+<p>Evaluate features that I would like to see in such systems:
+* Monitoring and Alerting
+    - Integration with metrics systems or own alert system.
+* Ability to comment on data
+    - Tag based comments, ability to search for relative comments and identify similar situations.
+    - Anotate the decision - explain and classify the situation as ignored or addressed</p>
+
+  </div>
+</section>
+<section id="tag-pane" class="row meta">
+  
+  <div class="col-md-12">
+    <h6 class="text-right meta">
+      
+      
+      TAGS: 
+      
+      
+      <a class="meta" href="/tags/blazer">BLAZER</a>, 
+      
+      <a class="meta" href="/tags/blog">BLOG</a>, 
+      
+      <a class="meta" href="/tags/github">GITHUB</a>, 
+      
+      <a class="meta" href="/tags/superset">SUPERSET</a>, 
+      
+      <a class="meta" href="/tags/tableau">TABLEAU</a>
+      
+      
+    </h6>
+  </div>
+  
+</section>
+
+
+
+
+<div id="disqus_thread"></div>
+<script>
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "pedro-carmona" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+
+<section id="menu-pane" class="row menu text-center">
+  
+  
+  <span><a class="menu-item" href="https://pedrocarmona.github.io/blog/first/">&lt; prev | </a></span>
+  
+  
+  <span><a class="menu-item" href="/blog">blog</a></span>
+  
+  
+  
+  <h4 class="text-center"><a class="menu-item" href="https://pedrocarmona.github.io/">home</a></h4>
+</section>
+
+
+
+<footer class="row text-center footer">
+  <hr />
+  
+  <h6 class="text-center copyright">© 2016. Pedro Carmona.</h6>
+  
+  <h6 class="text-center powered">Powered by <a href="https://gohugo.io/">Hugo</a> &amp; <a href="https://github.com/shenoybr/hugo-goa">Goa</a>.</h6>
+  
+  
+</footer>
+
+</div>
+
+
+
+
+
+
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-85850976-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='//www.google-analytics.com/analytics.js'></script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
+
+

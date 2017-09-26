@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Blogs on Pedro Carmona</title>
-    <link>https://pedrocarmona.github.io/blog/</link>
-    <description>Recent content in Blogs on Pedro Carmona</description>
+    <title>Superset on Pedro Carmona</title>
+    <link>https://pedrocarmona.github.io/tags/superset/</link>
+    <description>Recent content in Superset on Pedro Carmona</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
     <lastBuildDate>Tue, 26 Sep 2017 23:07:17 +0200</lastBuildDate>
     
-	<atom:link href="https://pedrocarmona.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://pedrocarmona.github.io/tags/superset/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -19,18 +19,6 @@
       <guid>https://pedrocarmona.github.io/blog/data_viz/</guid>
       <description>Nowadays, their are multiple report solutions that allow marketeers and data analysts to view and analyse data. This reporting tools connect to databases and prepare the data for visualization. Within this article several report platforms will be compared, using the following parameters:
  Supported Databases Query caching Team share Install requirements Permissions Storage and Versioning Pricing  Supported databases  Tableau supports a wide variety of databases, including Amazon Athena, Amazon Redshift, Anaplan, Apache Drill, Cloudera Hadoop Hive and Impala, Firebird, Google BigQuery, Microsoft Azure Data Lake, Microsoft SQL Server, MonetDB, MongoDB BI, MySQL 5.</description>
-    </item>
-    
-    <item>
-      <title>Static Website Development</title>
-      <link>https://pedrocarmona.github.io/blog/first/</link>
-      <pubDate>Tue, 18 Oct 2016 23:50:17 +0200</pubDate>
-      
-      <guid>https://pedrocarmona.github.io/blog/first/</guid>
-      <description>Today is the first day of this personal website, which I chosen to develep with Hugo.
-A while a go, had the opportunity to work with Jekyll, developing a yet to come, new version for my parents small scale tourist resort, Quinta da Rica-Fe.
-After working with both Hugo and Jekyll, I decided that I will migrate also to Hugo my parents website. The main reasons for this are:
- Compile time, Hugo is really fast comparing with the alternative.</description>
     </item>
     
   </channel>
