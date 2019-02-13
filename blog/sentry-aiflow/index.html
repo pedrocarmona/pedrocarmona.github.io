@@ -41,13 +41,13 @@
 
 
 <header class="row text-left title">
-  <h1 class="title">Static Website Development</h1>
+  <h1 class="title">Add sentry to your airflow</h1>
 </header>
 <section id="category-pane" class="row meta">
   
   <div class="col-md-12">
     <h6 class="text-left meta">
-        PUBLISHED ON OCT 18, 2016 
+        PUBLISHED ON FEB 13, 2019 
       
       
       
@@ -64,19 +64,69 @@
 </section>
 <section id="content-pane" class="row">
   <div class="col-md-12 text-justify content">
-    <p>Today is the first day of this personal website, which I chosen to develep with <a href="https://gohugo.io/">Hugo</a>.</p>
+    <p>Since this <a href="https://github.com/apache/airflow/pull/2135">pull request</a> in airflow github repository, it is possible to send errors to sentry. This way you get a sentry alert every time an error or a SIGTERM happens.</p>
 
-<p>A while a go, had the opportunity to work with <a href="https://jekyllrb.com/">Jekyll</a>, developing a yet to come, new version for my parents small scale
-tourist resort, <a href="http://www.quintadaricafe.pt/">Quinta da Rica-Fe</a>.</p>
+<p>My configuration</p>
 
-<p>After working with both <a href="https://gohugo.io/">Hugo</a> and <a href="https://jekyllrb.com/">Jekyll</a>, I decided that I will migrate also to Hugo my parents website. The main reasons for this are:</p>
+<p>dags/notify_sentry.py</p>
 
-<ul>
-<li>Compile time, Hugo is really fast comparing with the alternative. Also, in jekyll file changes detetion is slow. In hugo, immediately after saving the files the changes are propagated to the browser.</li>
-<li>Although it is just a tool on top of golang, it will allow me to get used to golang templating and stack trace.</li>
-<li>At the time of this article, github only serves Github Pages with Jekyll. This means that <a href="https://gohugo.io/tutorials/github-pages-blog/">some work arounds</a> are necessary to use Hugo.</li>
-<li>To fully compare both platforms, I need a project like my parents website - where there are requirements like two languages, Portuguese and English.</li>
-</ul>
+<pre><code>import os
+import sentry_sdk
+from sentry_sdk import capture_exception, configure_scope
+# requires sentry-sdk==0.7.0
+
+
+def sentry_capture_exception(context):
+    &quot;&quot;&quot;
+        Sends Error to Sentry.
+        op = BashOperator(
+            dag=my_dag,
+            task_id='my_task',
+            python_callable=my_python_job,
+            on_failure_callback=sentry_capture_exception
+        )
+    &quot;&quot;&quot;
+    dsn = os.getenv('SENTRY_DSN')
+    sentry_sdk.init(dsn)
+    error = context.get('exception')
+
+    with configure_scope() as scope:
+        scope.set_extra('dag', context.get('dag'))
+        scope.set_extra('dag_run', context.get('dag_run'))
+        scope.set_extra('ds', context.get('ds'))
+        scope.set_extra('end_date', context.get('end_date'))
+        scope.set_extra('execution_date', context.get('execution_date'))
+        scope.set_extra('latest_date', context.get('latest_date'))
+        scope.set_extra('params', context.get('params'))
+        scope.set_extra('run_id', context.get('run_id'))
+        scope.set_extra('task', context.get('task'))
+        scope.set_extra('task_instance', context.get('task_instance'))
+        scope.set_extra('ti', context.get('ti'))
+        scope.set_extra('ts', context.get('ts'))
+        scope.set_extra('yesterday_ds', context.get('yesterday_ds'))
+
+    capture_exception(error)
+</code></pre>
+
+<p>then in your dag:</p>
+
+<p>dags/my_dag.py</p>
+
+<pre><code>from notify_sentry import sentry_capture_exception
+
+...
+
+
+op = BashOperator(
+    dag=my_dag,
+    task_id='my_task',
+    python_callable=my_python_job,
+    on_failure_callback=sentry_capture_exception
+)
+
+</code></pre>
+
+<p>Sometimes, you might need to add <code>provide_context=True</code> to the operator parameters.</p>
 
   </div>
 </section>
@@ -90,13 +140,11 @@ tourist resort, <a href="http://www.quintadaricafe.pt/">Quinta da Rica-Fe</a>.</
       TAGS:
       
       
+      <a class="meta" href="/tags/airflow">AIRFLOW</a>, 
+      
       <a class="meta" href="/tags/blog">BLOG</a>, 
       
-      <a class="meta" href="/tags/github">GITHUB</a>, 
-      
-      <a class="meta" href="/tags/hugo">HUGO</a>, 
-      
-      <a class="meta" href="/tags/jekyll">JEKYLL</a>
+      <a class="meta" href="/tags/sentry">SENTRY</a>
       
       
       
@@ -134,11 +182,11 @@ tourist resort, <a href="http://www.quintadaricafe.pt/">Quinta da Rica-Fe</a>.</
 <section id="menu-pane" class="row menu text-center">
   
   
+  <span><a class="menu-item" href="https://pedrocarmona.github.io/blog/data_viz/">&lt; prev | </a></span>
+  
   
   <span><a class="menu-item" href="/blog">blog</a></span>
   
-  
-  <span><a class="menu-item" href="https://pedrocarmona.github.io/blog/data_viz/"> | next &gt;</a></span>
   
   
   <h4 class="text-center"><a class="menu-item" href="https://pedrocarmona.github.io/">home</a></h4>

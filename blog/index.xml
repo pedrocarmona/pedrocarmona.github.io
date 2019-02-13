@@ -6,10 +6,22 @@
     <description>Recent content in Blogs on Pedro Carmona</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
-    <lastBuildDate>Tue, 26 Sep 2017 23:07:17 +0200</lastBuildDate>
+    <lastBuildDate>Wed, 13 Feb 2019 12:15:17 +0100</lastBuildDate>
     
 	<atom:link href="https://pedrocarmona.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Add sentry to your airflow</title>
+      <link>https://pedrocarmona.github.io/blog/sentry-aiflow/</link>
+      <pubDate>Wed, 13 Feb 2019 12:15:17 +0100</pubDate>
+      
+      <guid>https://pedrocarmona.github.io/blog/sentry-aiflow/</guid>
+      <description>Since this pull request in airflow github repository, it is possible to send errors to sentry. This way you get a sentry alert every time an error or a SIGTERM happens.
+My configuration
+dags/notify_sentry.py
+import os import sentry_sdk from sentry_sdk import capture_exception, configure_scope # requires sentry-sdk==0.7.0 def sentry_capture_exception(context): &amp;quot;&amp;quot;&amp;quot; Sends Error to Sentry. op = BashOperator( dag=my_dag, task_id=&#39;my_task&#39;, python_callable=my_python_job, on_failure_callback=sentry_capture_exception ) &amp;quot;&amp;quot;&amp;quot; dsn = os.getenv(&#39;SENTRY_DSN&#39;) sentry_sdk.init(dsn) error = context.get(&#39;exception&#39;) with configure_scope() as scope: scope.</description>
+    </item>
     
     <item>
       <title>Data Visualization Platforms</title>
