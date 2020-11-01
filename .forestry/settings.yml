@@ -18,8 +18,10 @@ front_matter_path: ''
 use_front_matter_path: 
 file_template: ":filename:"
 build:
-  install_dependencies_command: npm install
-  preview_docker_image: forestryio/node:12
+  preview_docker_image: forestryio/ruby:2.6
+  install_dependencies_command: bundle config path vendor/bundle && bundle install &&  yarn install
+  instant_preview_command: yarn serve
   mount_path: "/srv"
   working_dir: "/srv"
-  instant_preview_command: npm run develop
+  preview_output_directory: "output"
+
