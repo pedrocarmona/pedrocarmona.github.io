@@ -4,6 +4,11 @@ auto_deploy: false
 admin_path: 
 webhook_url: 
 sections:
+- type: directory
+  path: src
+  label: src
+  create: none
+  match: _**/*,*
 - type: document
   path: src/_layouts/home.liquid
   label: home liquid
@@ -11,9 +16,6 @@ sections:
 - type: document
   path: src/index.md
   label: home
-- type: document
-  path: https://github.com/pedrocarmona/pedrocarmona.github.io/tree/master/src/_posts
-  label: Blog
 - type: heading
   label: Heading
 upload_dir: images
