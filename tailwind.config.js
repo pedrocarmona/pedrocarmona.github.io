@@ -111,6 +111,7 @@ module.exports = {
     // Some useful comment
   },
   plugins: [
+    require('@tailwindcss/typography'),
     // Some useful comment
   ]
 }
