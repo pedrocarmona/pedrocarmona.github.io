@@ -1,5 +1,6 @@
 module.exports = {
   purge: {
+    enabled: true,
     content: [
       './src/**/*.vue',
       './src/**/*.js',
@@ -7,8 +8,7 @@ module.exports = {
       './src/**/*.html',
       './src/**/*.pug',
       './src/**/*.md',
-      './docs/**/*.md',
-      './blog/**/*.md',
+      './src/**/*.liquid',
     ],
     options: {
       whitelist: [
@@ -16,9 +16,6 @@ module.exports = {
         'html',
         'img',
         'a',
-        'g-image',
-        'g-image--lazy',
-        'g-image--loaded',
         'active',
       ],
     }
