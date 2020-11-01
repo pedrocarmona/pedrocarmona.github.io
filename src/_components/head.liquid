@@ -1,0 +1,17 @@
+<meta charset="utf-8" />
+<meta data-key="viewport" name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta data-key="format-detection" name="format-detection" content="telephone=no">
+
+{% capture page_title %}{{ title | strip_html | strip_newlines }}{% endcapture %}
+<title>{% if page_title != "" %}{{ page_title | escape }} | {{ metadata.title | escape }}{% else %}{{ metadata.title | escape }}: {{ metadata.tagline | escape }}{% endif %}</title>
+<meta name="title" content="{{ metadata.title }}" />
+<meta name="keywords" content="{{ metadata.keywords }}" />
+<meta name="description" content="{{ metadata.description }}" />
+<meta name="author" content="{{ metadata.author }}" />
+
+<link rel="stylesheet" href="{% webpack_path css %}" />
+<script src="{% webpack_path js %}" defer></script>
+
+<noscript>
+<style>.g-image--loading{display:none;}</style>
+</noscript>
