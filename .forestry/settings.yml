@@ -12,14 +12,13 @@ sections:
 - type: document
   path: src/_layouts/home.liquid
   label: home liquid
-  match: "**/*"
 - type: document
   path: src/index.md
   label: home
 - type: heading
   label: Heading
-upload_dir: images
-public_path: src/images
+upload_dir: src/images
+public_path: images
 front_matter_path: ''
 use_front_matter_path: 
 file_template: ":filename:"
