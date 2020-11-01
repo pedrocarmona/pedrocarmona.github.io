@@ -29,7 +29,7 @@ module.exports = {
       fileName: path.resolve(__dirname, ".bridgetown-webpack", "manifest.json"),
     }),
     new HtmlWebpackPlugin(),
-    new FaviconsWebpackPlugin('src/images/picture.jpeg')
+    new FaviconsWebpackPlugin('./src/images/picture.jpeg')
   ],
   module: {
     rules: [
