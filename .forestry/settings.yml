@@ -5,6 +5,10 @@ admin_path:
 webhook_url: 
 sections:
 - type: document
+  path: src/_layouts/home.liquid
+  label: home liquid
+  match: "**/*"
+- type: document
   path: src/index.md
   label: home
 - type: document
