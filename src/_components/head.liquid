@@ -1,44 +1,17 @@
 <meta charset="utf-8" />
 <meta data-key="viewport" name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta data-key="format-detection" name="format-detection" content="telephone=no">
 
 {% capture page_title %}{{ title | strip_html | strip_newlines }}{% endcapture %}
 <title>{% if page_title != "" %}{{ page_title | escape }} | {{ metadata.title | escape }}{% else %}{{ metadata.title | escape }}: {{ metadata.tagline | escape }}{% endif %}</title>
-
+<meta name="title" content="{{ metadata.title }}" />
+<meta name="keywords" content="{{ metadata.keywords }}" />
 <meta name="description" content="{{ metadata.description }}" />
+<meta name="author" content="{{ metadata.author }}" />
 
 <link rel="stylesheet" href="{% webpack_path css %}" />
 <script src="{% webpack_path js %}" defer></script>
 
-<meta name="gridsome:hash" content="46c0b05e4fb3ec867c8c9efa5b8eb99d8341470d">
-<meta data-vue-tag="ssr" charset="utf-8">
-<meta data-vue-tag="ssr" name="generator" content="Gridsome v0.7.20">
-
-<meta data-vue-tag="ssr" data-key="format-detection" name="format-detection" content="telephone=no">
-<meta data-vue-tag="ssr" name="keywords" content="Gridsome,Vue,Tailwind,Tailwind CSS,JavaScript,HTML,CSS,Vue.js,VueJS">
-<meta data-vue-tag="ssr" name="description" content="Gridsome Portfolio Starter">
-<meta data-vue-tag="ssr" name="author" content="Andre Madarang">
-<meta data-vue-tag="ssr" data-key="description" name="description" content="A simple portfolio theme for Gridsome powered by Tailwind CSS v1">
-<link data-vue-tag="ssr" rel="icon" href="data:,">
-<link data-vue-tag="ssr" rel="icon" type="image/png" sizes="16x16" href="/assets/static/favicon.ce0531f.9bb7ffafafc09ac851d81afb65b8ef59.png">
-<link data-vue-tag="ssr" rel="icon" type="image/png" sizes="32x32" href="/assets/static/favicon.ac8d93a.9bb7ffafafc09ac851d81afb65b8ef59.png">
-<link data-vue-tag="ssr" rel="icon" type="image/png" sizes="96x96" href="/assets/static/favicon.b9532cc.9bb7ffafafc09ac851d81afb65b8ef59.png">
-<link data-vue-tag="ssr" rel="apple-touch-icon" type="image/png" sizes="76x76" href="/assets/static/favicon.f22e9f3.9bb7ffafafc09ac851d81afb65b8ef59.png">
-<link data-vue-tag="ssr" rel="apple-touch-icon" type="image/png" sizes="152x152" href="/assets/static/favicon.62d22cb.9bb7ffafafc09ac851d81afb65b8ef59.png">
-<link data-vue-tag="ssr" rel="apple-touch-icon" type="image/png" sizes="120x120" href="/assets/static/favicon.1539b60.9bb7ffafafc09ac851d81afb65b8ef59.png">
-<link data-vue-tag="ssr" rel="apple-touch-icon" type="image/png" sizes="167x167" href="/assets/static/favicon.dc0cdc5.9bb7ffafafc09ac851d81afb65b8ef59.png">
-<link data-vue-tag="ssr" rel="apple-touch-icon" type="image/png" sizes="180x180" href="/assets/static/favicon.7b22250.9bb7ffafafc09ac851d81afb65b8ef59.png">
-<link data-vue-tag="ssr" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito+Sans:400,700">
-<link rel="preload" href="/assets/css/0.styles.12bb7f50.css" as="style">
-<link rel="preload" href="/assets/js/app.994b19ff.js" as="script">
-<link rel="preload" href="/assets/js/page--src--pages--index-vue.193dc8cb.js" as="script">
-<link rel="prefetch" href="/assets/js/page--src--pages--404-vue.b5dda2f4.js">
-<link rel="prefetch" href="/assets/js/page--src--pages--blog-vue.89db4098.js">
-<link rel="prefetch" href="/assets/js/page--src--pages--docs-vue.7645a7d7.js">
-<link rel="prefetch" href="/assets/js/page--src--templates--documentation-vue.1dd135a4.js">
-<link rel="prefetch" href="/assets/js/page--src--templates--post-vue.72157249.js">
-<link rel="prefetch" href="/assets/js/page--src--templates--tag-vue.6933d7f7.js">
-<link rel="prefetch" href="/assets/js/vue-remark--docs--vue-components-in-markdown-md.f5c6f692.js">
-<link rel="stylesheet" href="/assets/css/0.styles.12bb7f50.css">
-<noscript data-vue-tag="ssr">
+<noscript>
 <style>.g-image--loading{display:none;}</style>
 </noscript>

@@ -1,6 +1,8 @@
 const path = require("path");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const ManifestPlugin = require("webpack-manifest-plugin");
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const FaviconsWebpackPlugin = require('favicons-webpack-plugin')
 
 module.exports = {
   entry: "./frontend/javascript/index.js",
@@ -26,6 +28,8 @@ module.exports = {
     new ManifestPlugin({
       fileName: path.resolve(__dirname, ".bridgetown-webpack", "manifest.json"),
     }),
+    new HtmlWebpackPlugin(),
+    new FaviconsWebpackPlugin('src/images/picture.jpeg')
   ],
   module: {
     rules: [
