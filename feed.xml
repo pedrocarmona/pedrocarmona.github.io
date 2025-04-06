@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2025-04-06T19:38:07+00:00</updated><id>/feed.xml</id><entry><title type="html">Add sentry to your airflow</title><link href="/blog/2019/02/13/add-sentry-to-your-airflow.html" rel="alternate" type="text/html" title="Add sentry to your airflow" /><published>2019-02-13T11:15:17+00:00</published><updated>2019-02-13T11:15:17+00:00</updated><id>/blog/2019/02/13/add-sentry-to-your-airflow</id><content type="html" xml:base="/blog/2019/02/13/add-sentry-to-your-airflow.html"><![CDATA[<p>Since this <a href="https://github.com/apache/airflow/pull/2135">pull request</a> in airflow github repository, it is possible to send errors to sentry. This way you get a sentry alert every time an error or a SIGTERM happens.</p>
+
+<p>My configuration</p>
+
+<p>dags/notify_sentry.py</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>import os
+import sentry_sdk
+from sentry_sdk import capture_exception, configure_scope
+# requires sentry-sdk==0.7.0
+
+
+def sentry_capture_exception(context):
+    """
+        Sends Error to Sentry.
+        op = BashOperator(
+            dag=my_dag,
+            task_id='my_task',
+            python_callable=my_python_job,
+            on_failure_callback=sentry_capture_exception
+        )
+    """
+    dsn = os.getenv('SENTRY_DSN')
+    sentry_sdk.init(dsn)
+    error = context.get('exception')
+
+    with configure_scope() as scope:
+        scope.set_extra('dag', context.get('dag'))
+        scope.set_extra('dag_run', context.get('dag_run'))
+        scope.set_extra('ds', context.get('ds'))
+        scope.set_extra('end_date', context.get('end_date'))
+        scope.set_extra('execution_date', context.get('execution_date'))
+        scope.set_extra('latest_date', context.get('latest_date'))
+        scope.set_extra('params', context.get('params'))
+        scope.set_extra('run_id', context.get('run_id'))
+        scope.set_extra('task', context.get('task'))
+        scope.set_extra('task_instance', context.get('task_instance'))
+        scope.set_extra('ti', context.get('ti'))
+        scope.set_extra('ts', context.get('ts'))
+        scope.set_extra('yesterday_ds', context.get('yesterday_ds'))
+
+    capture_exception(error)
+</code></pre></div></div>
+
+<p>then in your dag:</p>
+
+<p>dags/my_dag.py</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>from notify_sentry import sentry_capture_exception
+
+...
+
+
+op = BashOperator(
+    dag=my_dag,
+    task_id='my_task',
+    python_callable=my_python_job,
+    on_failure_callback=sentry_capture_exception
+)
+
+</code></pre></div></div>
+
+<p>Sometimes, you might need to add <code class="language-plaintext highlighter-rouge">provide_context=True</code> to the operator parameters.</p>]]></content><author><name></name></author><category term="blog" /><category term="airflow" /><category term="sentry" /><category term="blog" /><summary type="html"><![CDATA[Describe how to send airflow errors to sentry]]></summary></entry><entry><title type="html">Data Visualization Platforms</title><link href="/blog/2017/09/26/overview-about-data-visualization-platforms.html" rel="alternate" type="text/html" title="Data Visualization Platforms" /><published>2017-09-26T21:07:17+00:00</published><updated>2017-09-26T21:07:17+00:00</updated><id>/blog/2017/09/26/overview-about-data-visualization-platforms</id><content type="html" xml:base="/blog/2017/09/26/overview-about-data-visualization-platforms.html"><![CDATA[<p>Nowadays, their are multiple report solutions that allow marketeers and data analysts to view and analyse data. This reporting tools connect to databases and prepare the data for visualization.
+Within this article several report platforms will be compared, using the following parameters:</p>
+
+<ul>
+  <li><a href="#supported-databases">Supported Databases</a></li>
+  <li><a href="#query-caching">Query caching</a></li>
+  <li><a href="#team-share">Team share</a></li>
+  <li><a href="#install-requirements">Install requirements</a></li>
+  <li><a href="#permissions">Permissions</a></li>
+  <li><a href="#storage-and-versioning">Storage and Versioning</a></li>
+  <li><a href="#pricing">Pricing</a></li>
+</ul>
+
+<h2 id="supported-databases">Supported databases</h2>
+
+<ul>
+  <li><a href="www.tableau.com">Tableau</a> supports a wide variety of databases, including Amazon Athena, Amazon Redshift, Anaplan, Apache Drill, Cloudera Hadoop Hive and Impala, Firebird, Google BigQuery, Microsoft Azure Data Lake, Microsoft SQL Server, MonetDB, MongoDB BI, MySQL 5.0, Oracle Database, Pivotal Greenplum, PostgreSQL, Presto, Snowflake.</li>
+  <li><a href="https://github.com/apache/incubator-superset">Superset</a> supports MySQL, Postgres, Vertica, Oracle, Microsoft SQL Server, SQLite, Greenplum, Firebird, MariaDB, Sybase,IBM DB2, Exasol, MonetDB, Snowflake, Redshift. Redshift, Mysql and Druid.</li>
+  <li><a href="https://github.com/ankane/blazer">Blazer</a> supports PostgreSQL, MySQL, SQL Server, Oracle, IBM DB2 and Informix, SQLite, Amazon Redshift, Amazon Athena, Presto, Apache Drill, Google BigQuery, MongoDB, Elasticsearch.</li>
+</ul>
+
+<h2 id="query-caching">Query caching</h2>
+
+<p>Query caching allows reporting tools to improve the usability of their service.</p>
+
+<ul>
+  <li><a href="www.tableau.com">Tableau</a> users can predifine if a given source is stored in an extract. Usually, this speeds up the response time of the reporting tool.</li>
+  <li><a href="https://github.com/apache/incubator-superset">Superset</a> dashboards have configurable caching.</li>
+  <li><a href="https://github.com/ankane/blazer">Blazer</a> by default it will cache for one hour queries that take longer than 15 seconds. The threshould and cache time is configurable by datasource.</li>
+</ul>
+
+<h2 id="team-share">Team Share</h2>
+<p>Using web browser reporting tools may offer the ability to easily share the result of a given query, or share a dashboard with specific filters.</p>
+
+<ul>
+  <li>In <a href="www.tableau.com">Tableau</a>, with tableau online isnt possible to save the current state of the filter, because the url isnt mutated with the filters. Also users cannot simple run SQL queries directly.</li>
+  <li><a href="https://github.com/apache/incubator-superset">Superset</a></li>
+  <li><a href="https://github.com/ankane/blazer">Blazer</a> users can share dashboards with parameters and adhoc queries and their results easilly.</li>
+</ul>
+
+<h2 id="install-requirements">Install requirements</h2>
+<ul>
+  <li><a href="www.tableau.com">Tableau</a> the desktop version is avaliable for windows and mac. Tableau server is deployed in an Windows environment.</li>
+  <li><a href="https://github.com/apache/incubator-superset">Superset</a> Python and preferable unix environment.</li>
+  <li><a href="https://github.com/ankane/blazer">Blazer</a> Ruby on Rails and preferable unix environment.</li>
+</ul>
+
+<h2 id="permissions">Permissions</h2>
+<p>Access control is a feature that allows the administrator of the tool the control the permissions of the users on a given report.</p>
+
+<ul>
+  <li><a href="www.tableau.com">Tableau</a> has a permissions system embed.</li>
+  <li><a href="https://github.com/apache/incubator-superset">Superset</a> contains a customizable permission system.</li>
+  <li>In <a href="https://github.com/ankane/blazer">Blazer</a> users can create queries that cannot be edited by other users.</li>
+</ul>
+
+<h2 id="storage-and-versioning">Storage and Versioning</h2>
+
+<p>Storing the reports in an external storage like a git repo allows the maintainers of the reports to track changes, create tags with deployed versions, and control the code accessibility.</p>
+
+<ul>
+  <li>In <a href="www.tableau.com">Tableau</a> its possible to use a builtin backup system via the UI. On the other hand, this only contains a set of the latest versions. It is required to implement a custom development procedure, in order to safely store in an external storage all versions of the reports.</li>
+  <li><a href="https://github.com/apache/incubator-superset">Superset</a> its not possible to use versions. Queries are saved in the database. The database can be configured with daily backups.</li>
+  <li>With <a href="https://github.com/ankane/blazer">Blazer</a> its not possible to use versions. Queries are saved in the database. The database can be configured with daily backups.</li>
+</ul>
+
+<h2 id="pricing">Pricing</h2>
+
+<ul>
+  <li><a href="www.tableau.com">Tableau</a>: I would recomend to use Tableau Desktop (70 euros/per user) together with the Tableau Online (42 euros/per user). I prefer Tableau Online because:
+    <ul>
+      <li>Its only 7 euros more expensive than Tableau Server.</li>
+      <li>Its enough for small that dont require complex data manipulation.</li>
+      <li>However at the moment it cannot use python or
+  R Server to enhance the reports (its only possible in Tableau Server)</li>
+    </ul>
+  </li>
+  <li><a href="https://github.com/apache/incubator-superset">Superset</a> is a custom deployed solution and the cost would be arround 40 euros per month for a small team.</li>
+  <li><a href="https://github.com/ankane/blazer">Blazer</a> if the company already uses an administration panel in RubyOnRails, then this platform is for free. Otherwise requires a custom deployment</li>
+</ul>
+
+<h1 id="conclusion">Conclusion</h1>
+
+<p>I would recomend each of the reporting tools analysed for:</p>
+
+<ul>
+  <li><a href="www.tableau.com">Tableau</a> small, medium and large business that require a easy solution, fast deployment. It includes a report generation tool and it has good documentation. Also its a predominant solution.</li>
+  <li><a href="https://github.com/apache/incubator-superset">Superset</a> companies with an in-house engineer able to setup and perform maintenance in python and unix systems. Its an open source tool that might be predominant in the future.</li>
+  <li><a href="https://github.com/ankane/blazer">Blazer</a> for companies using RubyOnRails. Its a simple solution that helps solve most of the use cases: Create simple dashboards and give users the ability to create SQL queries as well as download the corresponding CSV reports.</li>
+</ul>
+
+<h1 id="to-be-continued">To be continued</h1>
+
+<p>Evaluate features that I would like to see in such systems:</p>
+
+<ul>
+  <li>Monitoring and Alerting
+    <ul>
+      <li>Integration with metrics systems or own alert system.</li>
+    </ul>
+  </li>
+  <li>Ability to comment on data
+    <ul>
+      <li>Tag based comments, ability to search for relative comments and identify similar situations.</li>
+      <li>Anotate the decision - explain and classify the situation as ignored or addressed</li>
+    </ul>
+  </li>
+</ul>]]></content><author><name></name></author><category term="blog" /><category term="tableau" /><category term="superset" /><category term="blazer" /><category term="github" /><category term="blog" /><summary type="html"><![CDATA[Overview about data visualization platforms]]></summary></entry></feed>
