@@ -1,13 +1,12 @@
-# Bridgetown
-output
-.bridgetown-cache
-.bridgetown-metadata
-.bridgetown-webpack
+# Jekyll
+_site
+.sass-cache
+.jekyll-cache
+.jekyll-metadata
+vendor
 
 # Dependency folders
 node_modules
-bower_components
-vendor
 
 # Caches
 .sass-cache
@@ -33,6 +32,3 @@ yarn-debug.log*
 .pnp.js
 # Yarn Integrity file
 .yarn-integrity
-
-.DS_Store
-.idea

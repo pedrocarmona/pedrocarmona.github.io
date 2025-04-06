@@ -1,0 +1,3 @@
+#!/usr/bin/env sh
+
+bundle exec jekyll serve --livereload --incremental --drafts --future --config _config.yml

@@ -4,7 +4,7 @@
 #
 # This bash script takes an image as a parameter, and uses ImageMagick to convert it to several
 # other formats used on modern websites. The following copies are generated:
-# 
+#
 # * apple-touch-icon-48x48-precomposed.png
 # * apple-touch-icon-72x72-precomposed.png
 # * apple-touch-icon-96x96-precomposed.png
@@ -20,8 +20,8 @@
 
 CONVERT_CMD=`which convert`
 # SCRIPT_DIR=`dirname "$0"`
-ROOT="static"
-SRC_IMAGE=$ROOT"/img/picture.jpeg"
+ROOT="."
+SRC_IMAGE=$ROOT"/assets/img/picture.jpeg"
 
 if [ -z $CONVERT_CMD ] || [ ! -f $CONVERT_CMD ] || [ ! -x $CONVERT_CMD ];
 then

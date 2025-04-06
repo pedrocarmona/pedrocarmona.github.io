@@ -1,0 +1,132 @@
+---
+layout: default
+---
+
+<div class="flex flex-col min-h-screen">
+  {% include navbar.html %}
+  <!-- Main Content -->
+  <main class="flex-grow">
+    <!-- Hero Section -->
+    <section class="hero py-16">
+      <div class="hero-content flex-col">
+        <div class="avatar mb-8">
+          <div class="w-40 h-40 rounded-full">
+            <img src="assets/img/picture.jpeg" alt="Pedro Carmona" />
+          </div>
+        </div>
+        <div class="text-center">
+          <h1 class="text-xl md:text-2xl font-medium">
+            Ruby on Rails Developer, Software Engineer, Test Driven Developer
+          </h1>
+        </div>
+      </div>
+    </section>
+
+     <!-- Skills Section (Optional, implied from job roles) -->
+    <section class="py-12 px-4 md:px-8 max-w-5xl mx-auto">
+      <div class="divider"></div>
+
+      <h2 class="text-2xl font-bold mb-8">Skills</h2>
+      <div class="flex flex-wrap gap-2 justify-center">
+        <div class="badge badge-lg">Ruby on Rails</div>
+        <div class="badge badge-lg">Test Driven Development</div>
+        <div class="badge badge-lg">Software Engineering</div>
+        <div class="badge badge-lg">Ruby</div>
+        <div class="badge badge-lg">Sinatra</div>
+        <div class="badge badge-lg">Java</div>
+        <div class="badge badge-lg">JavaScript</div>
+      </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section class="py-12 px-4 md:px-8 max-w-5xl mx-auto">
+      <div class="divider"></div>
+      <h2 class="text-2xl font-bold mb-8">Professional Experience:</h2>
+      <ul
+        class="timeline timeline-snap-icon max-md:timeline-compact timeline-vertical"
+      >
+        <li>
+          {% include timeline-icon.html %}
+          <div class="timeline-start mb-10 md:text-end">
+            <time class="font-mono italic">2024-2025</time>
+            <div class="text-lg font-black">Software Engineer @Impactpool</div>
+            Career and recrutment plaform for Impact Organizations: Ruby on
+            Rails
+            <div class="font-mono italic">Figueira da Foz, Portugal</div>
+          </div>
+          <hr />
+        </li>
+        <li>
+          <hr />
+          {% include timeline-icon.html %}
+          <div class="timeline-end md:mb-10">
+            <time class="font-mono italic">2023-2024</time>
+            <div class="text-lg font-black">
+              Senior Software Engineer I @DataCamp
+            </div>
+            Data Science Learning Platform: Ruby on Rails.
+            <div class="font-mono italic">Figueira da Foz, Portugal</div>
+          </div>
+          <hr />
+        </li>
+        <li>
+          <hr />
+          {% include timeline-icon.html %}
+          <div class="timeline-start mb-10 md:text-end">
+            <time class="font-mono italic">2020-2022</time>
+            <div class="text-lg font-black">Software Engineer @GetLavanda</div>
+            Property Management System: Ruby on Rails
+            <div class="font-mono italic">Lisbon, Portugal</div>
+          </div>
+          <hr />
+        </li>
+        <li>
+          <hr />
+          {% include timeline-icon.html %}
+          <div class="timeline-end md:mb-10">
+            <time class="font-mono italic">2017-2019</time>
+            <div class="text-lg font-black">Software Engineering @Goboony</div>
+            Motorhome Sharing Platform: Ruby on Rails.
+            <div class="font-mono italic">Amsterdam, The Netherlands</div>
+          </div>
+          <hr />
+        </li>
+        <li>
+          <hr />
+          {% include timeline-icon.html %}
+          <div class="timeline-start mb-10 md:text-end">
+            <time class="font-mono italic">2015-2017</time>
+            <div class="text-lg font-black">
+              Junior Software Engineer @BidMath
+            </div>
+            Advertising Technology - Ruby on Rails and Sinatra.
+            <div class="font-mono italic">Amsterdam, The Netherlands</div>
+          </div>
+          <hr />
+        </li>
+        <li>
+          <hr />
+          {% include timeline-icon.html %}
+          <div class="timeline-end md:mb-10">
+            <time class="font-mono italic">2014-2015</time>
+            <div class="text-lg font-black">Programmer Analyst I @FIS</div>
+            Banking Industry Software - Java and Javascript.
+            <div class="font-mono italic">Amsterdam, The Netherlands</div>
+          </div>
+          <hr />
+        </li>
+        <li>
+          <hr />
+          {% include timeline-icon.html %}
+          <div class="timeline-start mb-10 md:text-end">
+            <time class="font-mono italic">2013</time>
+            <div class="text-lg font-black">Web developer @Whitesmith</div>
+            Ruby on Rails consultant - Space renting software.
+            <div class="font-mono italic">Coimbra, Portugal</div>
+          </div>
+          <hr />
+        </li>
+      </ul>
+    </section>
+  </main>
+</div>

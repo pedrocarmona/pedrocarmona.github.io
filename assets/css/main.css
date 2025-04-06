@@ -1,0 +1,14 @@
+---
+---
+
+@import "tailwindcss";
+@source "./_includes/*.html";
+@source "./_layouts/*.html";
+@source "./_posts/*.md";
+@source "./*.html";
+
+@plugin "@tailwindcss/forms";
+@plugin "@tailwindcss/typography";
+@plugin "./assets/css/daisyui.js";
+
+

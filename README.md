@@ -1,3 +1,3 @@
 # Website
 
-Using bridgetownRB
+Using jekyll + tailwindcss + daisyui

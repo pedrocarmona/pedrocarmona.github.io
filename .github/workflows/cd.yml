@@ -9,8 +9,20 @@ jobs:
     name: Build & Deploy
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - name: Build & Deploy to GitHub Pages
-        uses: andrewmcodes/bridgetown-gh-pages-action@v0.0.3
+      - uses: actions/checkout@v4
+      - uses: actions/cache@v4
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          path: |
+            .asdf/**
+            vendor/bundle
+          key: ${{ runner.os }}-cache-${{ hashFiles('**/cache.key') }}
+          restore-keys: |
+            ${{ runner.os }}-cache-
+      - uses: jeffreytse/jekyll-deploy-action@v0.6.0
+        with:
+          provider: 'github'         # Default is github
+          token: ${{ secrets.GITHUB_TOKEN }} # It's your Personal Access Token(PAT)
+          branch: 'gh-pages'         # Default is gh-pages for github provider
+          jekyll_src: './'           # Default is root directory
+          jekyll_cfg: '_config.yml'  # Default is _config.yml
+          ruby_ver: '3.4.2'          # Default is 3.2.0 version
